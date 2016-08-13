@@ -17,7 +17,7 @@ dist: trusty
 # safelist
 branches:
   only:
-  - add-travis-tests
+  - master
 
 install:
   - cd ~
