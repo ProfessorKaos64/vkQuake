@@ -1,0 +1,38 @@
+os:
+    - linux
+
+language: c
+
+sudo: required
+dist: trusty
+
+# blocklist
+#branches:
+#  except:
+#  - add-yaml
+
+# safelist
+branches:
+  only:
+  - master
+
+install:
+  - cd ~
+  - sudo apt-add-repository ppa:ubuntu-toolchain-r/test -y
+  - sudo apt-get -qq update
+  - sudo apt-get -qq install git make gcc-4.9 libstdc++-4.9-dev libsdl2-dev libvorbis-dev libmad0-dev
+  - wget "http://packages.libregeek.org/steamos-tools/pool/main/v/vulkan/libvulkan1_1.0.21.0+git+bsos-1_amd64.deb" -q -nc
+  - wget "http://packages.libregeek.org/steamos-tools/pool/main/v/vulkan/libvulkan-dev_1.0.21.0+git+bsos-1_amd64.deb" -q -nc
+  - sudo dpkg -i libvulkan1_1.0.21.0+git+bsos-1_amd64.deb
+  - sudo dpkg -i libvulkan-dev_1.0.21.0+git+bsos-1_amd64.deb
+
+script:
+  - cd "$TRAVIS_BUILD_DIR"
+  - make -C Quake clean
+  - make -C Quake release USE_SDL2=1 \
+  - make -C Misc/vq_pak
+
+# Disable annoying emails
+
+notifications:
+    email: false
