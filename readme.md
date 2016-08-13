@@ -1,3 +1,11 @@
+
+# Build Status:
+
+|                |                                          |
+|----------------|------------------------------------------|
+| Linux   |[![Build Status](https://travis-ci.org/ProfessorKaos64/vkQuake.svg?branch=master)](https://travis-ci.org/ProfessorKaos64/vkQuake)|
+
+
 # Introduction
 vkQuake serves as a Vulkan demo application that shows basic usage of the API. For example it demonstrates render passes and sub passes, pipeline barriers, CPU/GPU parallelism and memory pooling. It is also meant as a port, which is as authentic to the original as possible.
 
